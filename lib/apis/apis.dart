@@ -84,7 +84,7 @@ class APIs {
       List<String> userIds) {
     return firestore
         .collection('user')
-        .where('id', whereIn: userIds)
+        .where('id', whereIn: userIds.isEmpty ? [''] : userIds)
         //.where('id', isNotEqualTo: user.uid)
         .snapshots();
   }
